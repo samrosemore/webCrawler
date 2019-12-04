@@ -25,7 +25,7 @@ public class Spider
 			//while there are still pages to visit
 			if((currentUrl = this.nextUrl(pagesToVisit.get(0))) != null)
 			{
-				//basically this spider class is going to facilitate the jumping between articles while the leg
+				//basically this spider class is going to facilitate the jumping between articles while the leg class
 				//is actually going to be searching the articles
 				leg.crawl(currentUrl);
 				
@@ -36,7 +36,6 @@ public class Spider
 				//gonna have to place a limit on this --> only search one "accessory article" ..... cant keep going down the list of link
 				//if every news artice is going to have a link to another  
 				pagesToVisit.addAll(leg.getLinks());
-				
 				
 				
 				

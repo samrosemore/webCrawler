@@ -36,6 +36,9 @@ public class SpiderLeg
     {
         try
         {
+        	// could also do final Document document = Jsoup.connect(url).get(); 
+        	//but I guess specifying the connection makes the program more robust
+        	//because you get to verify the connection first
             Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
             Document htmlDocument = connection.get();
             this.htmlDocument = htmlDocument;
@@ -83,12 +86,15 @@ public class SpiderLeg
         }
         System.out.println("Searching for the word " + searchWord + "...");
         String bodyText = this.htmlDocument.body().text();
+        
+        //very shit way to do this....inefficent and not targeted to a heading, body paragraph, etc.
         return bodyText.toLowerCase().contains(searchWord.toLowerCase());
     }
 
 
     public List<String> getLinks()
     {
+    	//retrieved in the crawl method
         return this.links;
     }
 	
